@@ -79,7 +79,7 @@ The final error returned by the command
 ### Shell
 
 ```yaml
-uses: nick-fields/retry@v2
+uses: newrelic-forks/retry@v2
 with:
   timeout_minutes: 10
   max_attempts: 3
@@ -90,7 +90,7 @@ with:
 ### Timeout in minutes
 
 ```yaml
-uses: nick-fields/retry@v2
+uses: newrelic-forks/retry@v2
 with:
   timeout_minutes: 10
   max_attempts: 3
@@ -100,7 +100,7 @@ with:
 ### Timeout in seconds
 
 ```yaml
-uses: nick-fields/retry@v2
+uses: newrelic-forks/retry@v2
 with:
   timeout_seconds: 15
   max_attempts: 3
@@ -110,7 +110,7 @@ with:
 ### Only retry after timeout
 
 ```yaml
-uses: nick-fields/retry@v2
+uses: newrelic-forks/retry@v2
 with:
   timeout_seconds: 15
   max_attempts: 3
@@ -121,7 +121,7 @@ with:
 ### Only retry after error
 
 ```yaml
-uses: nick-fields/retry@v2
+uses: newrelic-forks/retry@v2
 with:
   timeout_seconds: 15
   max_attempts: 3
@@ -132,7 +132,7 @@ with:
 ### Retry using continue_on_error input (in composite action) but allow failure and do something with output
 
 ```yaml
-- uses: nick-fields/retry@v2
+- uses: newrelic-forks/retry@v2
   id: retry
   with:
     timeout_seconds: 15
@@ -140,12 +140,12 @@ with:
     continue_on_error: true
     command: node -e 'process.exit(99);'
 - name: Assert that step succeeded (despite failing command)
-  uses: nick-fields/assert-action@v1
+  uses: newrelic-forks/assert-action@v1
   with:
     expected: success
     actual: ${{ steps.retry.outcome }}
 - name: Assert that action exited with expected exit code
-  uses: nick-fields/assert-action@v1
+  uses: newrelic-forks/assert-action@v1
   with:
     expected: 99
     actual: ${{ steps.retry.outputs.exit_code }}
@@ -154,7 +154,7 @@ with:
 ### Retry using continue-on-error built-in command (in workflow action) but allow failure and do something with output
 
 ```yaml
-- uses: nick-fields/retry@v2
+- uses: newrelic-forks/retry@v2
   id: retry
   # see https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idcontinue-on-error
   continue-on-error: true
@@ -164,17 +164,17 @@ with:
     retry_on: error
     command: node -e 'process.exit(99);'
 - name: Assert that action failed
-  uses: nick-fields/assert-action@v1
+  uses: newrelic-forks/assert-action@v1
   with:
     expected: failure
     actual: ${{ steps.retry.outcome }}
 - name: Assert that action exited with expected exit code
-  uses: nick-fields/assert-action@v1
+  uses: newrelic-forks/assert-action@v1
   with:
     expected: 99
     actual: ${{ steps.retry.outputs.exit_code }}
 - name: Assert that action made expected number of attempts
-  uses: nick-fields/assert-action@v1
+  uses: newrelic-forks/assert-action@v1
   with:
     expected: 3
     actual: ${{ steps.retry.outputs.total_attempts }}
@@ -183,7 +183,7 @@ with:
 ### Run script after failure but before retry
 
 ```yaml
-uses: nick-fields/retry@v2
+uses: newrelic-forks/retry@v2
 with:
   timeout_seconds: 15
   max_attempts: 3
@@ -194,7 +194,7 @@ with:
 ### Run different command after first failure
 
 ```yaml
-uses: nick-fields/retry@v2
+uses: newrelic-forks/retry@v2
 with:
   timeout_seconds: 15
   max_attempts: 3
