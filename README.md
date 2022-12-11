@@ -2,7 +2,7 @@
 
 Retries an Action step on failure or timeout. This is currently intended to replace the `run` step for moody commands.
 
-**NOTE:** Ownership of this project was transferred to my personal account `nick-fields` from my work account `nick-invision`. Details [here](#Ownership)
+**NOTE:** This is a fork of a 3rd party retry GH action that has been vetted for safety
 
 ---
 
@@ -235,8 +235,3 @@ NodeJS is required for this action to run. This runs without issue on all GitHub
 
 ---
 
-## **Ownership**
-
-As of 2022/02/15 ownership of this project has been transferred to my personal account `nick-fields` from my work account `nick-invision` due to me leaving InVision. I am the author and have been the primary maintainer since day one and will continue to maintain this as needed.
-
-Existing workflow references to `nick-invision/retry@<whatever>` no longer work and must be updated to `nick-fields/retry@<whatever>`.
